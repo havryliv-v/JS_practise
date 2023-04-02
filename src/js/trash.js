@@ -1267,7 +1267,7 @@
 
 // ----------------------------------------------Практика 14-------------------------------
 
-// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Vital', 'Vadim', 'Oleg'];
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Vital'];
 
 // function sortStudentsByGroups(arr) {
 //    arr.sort();
@@ -1414,3 +1414,156 @@
 // console.log(transferWaitors(restorantData));
 
 
+// ----------------- Lesson 47-----------------------
+
+// {
+//    let studentsInfo = {
+//       js: [{
+//          name: 'John',
+//          progress: 100
+//       }, {
+//          name: 'Ivan',
+//          progress: 80
+//       }],
+//       html: {
+//          basic: [{
+//             name: 'Peter',
+//             progress: 20
+//          }, {
+//             name: 'Ann',
+//             progress: 90
+//          }],
+//          pro: [{
+//             name: 'Sam',
+//             progress: 40
+//          }]
+//       }
+//    };
+
+   // let getTotalProgressByIteration = (data) => {
+   //    let total = 0,
+   //       students = 0;
+
+   //    for (let course of Object.values(data)) {
+   //       if (Array.isArray(course)) {
+   //          students += course.length;
+   //          for (let i = 0; i < course.length; i++) {
+   //             total += course[i].progress;
+   //          }
+   //       } else {
+   //          for (let subCourse of Object.values(course)) {
+   //             students += subCourse.length;
+   //             for (let i = 0; i < subCourse.length; i++) {
+   //                total += subCourse[i].progress;
+   //             }
+
+   //          }
+   //       }
+   //    }
+   //    return total / students;
+   // };
+
+
+//    let getTotalProgressByRecursion = (data) => {
+//       if (Array.isArray(data)) {
+//          let total = 0;
+//          for (let i = 0; i < data.length; i++) {
+//             total += data[i].progress;
+//          }
+//          return [total, data.length];
+//       } else {
+//          let total = [0, 0];
+//          for (let subData of Object.values(data)) {
+//             const subDataArr = getTotalProgressByRecursion(subData);
+//             total[0] += subDataArr[0];
+//             total[1] += subDataArr[1];
+//          }
+//          return total;
+//       }
+//    };
+
+//    const result = getTotalProgressByRecursion(studentsInfo);
+//    console.log(result[0] / result[1]);
+
+// }
+
+
+
+// function amountOfPages(summary) {
+//    let result = '';
+//    let n = 0;
+
+//    for (let i = 1; i <= summary; i++) {
+//       result += i;
+//       if (result.length === summary) {
+//          n = i;
+//          break;
+//       }
+//    }
+//    if (result.length === summary) {
+//       return n;
+//    } else if (result.length > summary) {
+//       return 'Error';
+//    }
+
+// }
+// console.log(amountOfPages(10));
+
+
+// function amountOfPages(summary) {
+//    let result = '';
+//    let n = 0;
+//    for (let i = 1; i <= summary; i++) {
+//       result += i;
+//       if (result.length === summary) {
+//          n = i;
+//          break;
+//       } else if (result.length > summary) {
+//          i--;
+//          n = i;
+//          break;
+//       }
+//    }
+//    return n;
+// }
+
+// console.log(amountOfPages(24));
+
+
+
+// window.addEventListener('DOMContentLoaded', () => {
+
+//    const tabs = document.querySelectorAll('.tabheader__item'),
+//       tabsContent = document.querySelectorAll('.tabcontent'),
+//       tabsParent = document.querySelector('.tabheader__items');
+//    function hideTabContent() {
+//       tabsContent.forEach(item => {
+//          item.classList.add('hide');
+//          item.classList.remove('show', 'fade');
+//       });
+//       tabs.forEach(tab => {
+//          tab.classList.remove('tabheader__item_active');
+//       });
+//    }
+
+//    function showTabContent(i = 0) {
+//       tabsContent[i].classList.add('show', 'fade');
+//       tabsContent[i].classList.remove('hide');
+//       tabs[i].classList.add('tabheader__item_active');
+//    }
+//    hideTabContent();
+//    showTabContent();
+
+
+//    tabsParent.addEventListener('click', (event) => {
+//       const target = event.target;
+//       if (target && target.classList.contains('tabheader__item')) {
+//          tabs.forEach((item, i) => {
+//             if (target == item) {
+//                hideTabContent();
+//                showTabContent(i);
+//             }
+//          });
+//       }
+//    });
+// });
